@@ -1,0 +1,214 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.5f1 (8095aa901b9b) revision 8426922'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 7  (6.1.0) 64bit' Language: 'ru' Physical Memory: 8130 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+I:\Program Files\2020.3.5f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/downloads/Photon-Materials-1/Photon Materials/Photon Starter
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+60331
+Successfully changed project path to: D:/downloads/Photon-Materials-1/Photon Materials/Photon Starter
+D:/downloads/Photon-Materials-1/Photon Materials/Photon Starter
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 40.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.5f1 (8095aa901b9b)
+[Subsystems] Discovering subsystems at path I:/Program Files/2020.3.5f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/downloads/Photon-Materials-1/Photon Materials/Photon Starter/Assets
+GfxDevice: creating device client; threaded=0
+d3d11: CreateDXGIFactory2(...) not found, fallbacking to CreateDXGIFactory1(...).
+d3d11: QueryInterface(IDXGIFactory5) failed (80004002).
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 660 (ID=0x11c0)
+    Vendor:   
+    VRAM:     1970 MB
+    Driver:   27.21.14.6611
+Initialize mono
+Mono path[0] = 'I:/Program Files/2020.3.5f1/Editor/Data/Managed'
+Mono path[1] = 'I:/Program Files/2020.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'I:/Program Files/2020.3.5f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56556
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: I:/Program Files/2020.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000738 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 39.66 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.817 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002284 seconds.
+Begin MonoManager ReloadAssembly
+OnLevelWasLoaded was found on Reporter
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.942 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.34 seconds
+Refreshing native plugins compatible for Editor in 0.53 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1627 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.6 MB.
+System memory in use after: 72.6 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2052.
+Total: 2.126661 ms (FindLiveObjects: 0.246324 ms CreateObjectMapping: 0.076976 ms MarkObjects: 1.736647 ms  DeleteObjects: 0.065505 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Photon/PhotonUnityNetworking
+  artifactKey: Guid(936e759380abdf54e969ee0d706b99fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking using Guid(936e759380abdf54e969ee0d706b99fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0e68490b9fccf75c1e30a9db7d9a252') in 0.004424 seconds
+  Import took 0.007309 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+  artifactKey: Guid(6afd823a034dbdc4e987ad986b2e0717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(6afd823a034dbdc4e987ad986b2e0717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a470b292151ce9bdad4c69a464b4617c') in 0.039929 seconds
+  Import took 0.042735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Resources
+  artifactKey: Guid(cd88f963db66f9547ab90b52c9224c0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Resources using Guid(cd88f963db66f9547ab90b52c9224c0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35cef1bb96d3846bab31ba1723100ea0') in 0.001724 seconds
+  Import took 0.004570 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 8.72 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 27 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 40.7 MB.
+System memory in use after: 40.8 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 2052.
+Total: 4.683484 ms (FindLiveObjects: 0.407522 ms CreateObjectMapping: 0.122257 ms MarkObjects: 4.125330 ms  DeleteObjects: 0.026263 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 214.712171 seconds.
+  path: Assets/RW/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+  artifactKey: Guid(7ba835170d2a842d3aba32d23c006c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RW/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(7ba835170d2a842d3aba32d23c006c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed955ec7ae421d8859ce15e785c9673f') in 0.003349 seconds
+  Import took 0.007932 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.009388 seconds.
+  path: Assets/RW/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+  artifactKey: Guid(7ba835170d2a842d3aba32d23c006c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RW/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(7ba835170d2a842d3aba32d23c006c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed955ec7ae421d8859ce15e785c9673f') in 0.003031 seconds
+  Import took 0.012720 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.066076 seconds.
+  path: Assets/RW/Scripts/Launcher.cs
+  artifactKey: Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RW/Scripts/Launcher.cs using Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b090cef8388b9aa5547e9e769842e7ec') in 0.003526 seconds
+  Import took 0.006707 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000611 seconds.
+  path: Assets/RW/Scripts/Launcher.cs
+  artifactKey: Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RW/Scripts/Launcher.cs using Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b090cef8388b9aa5547e9e769842e7ec') in 0.001805 seconds
+  Import took 0.004769 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.029203 seconds.
+  path: Assets/RW/Scripts/Launcher.cs
+  artifactKey: Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RW/Scripts/Launcher.cs using Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b090cef8388b9aa5547e9e769842e7ec') in 0.003028 seconds
+  Import took 0.006295 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 726.344368 seconds.
+  path: Assets/RW/Scripts/Launcher.cs
+  artifactKey: Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RW/Scripts/Launcher.cs using Guid(4796bc1963eb34e1fa021b0a45b29df4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e8bd9e4397079544133c12318fc702a') in 0.002849 seconds
+  Import took 0.006745 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003062 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.016 seconds
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on Reporter
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1620 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.3 MB.
+System memory in use after: 72.4 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 2055.
+Total: 1.848640 ms (FindLiveObjects: 0.174178 ms CreateObjectMapping: 0.065204 ms MarkObjects: 1.583298 ms  DeleteObjects: 0.024753 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.297276 seconds.
+  path: Assets/RW/Scenes/Launcher.unity
+  artifactKey: Guid(44f3269dca6ff47968c35ff18db4b34b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RW/Scenes/Launcher.unity using Guid(44f3269dca6ff47968c35ff18db4b34b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a0d18f7d91db606dabecf7e371d92ef') in 0.023621 seconds
+  Import took 0.028597 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003022 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.181 seconds
+Platform modules already initialized, skipping
+OnLevelWasLoaded was found on Reporter
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1620 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.4 MB.
+System memory in use after: 72.5 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 2058.
+Total: 3.264402 ms (FindLiveObjects: 0.313339 ms CreateObjectMapping: 0.088145 ms MarkObjects: 2.826995 ms  DeleteObjects: 0.033809 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
