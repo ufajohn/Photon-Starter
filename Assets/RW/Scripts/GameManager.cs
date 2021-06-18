@@ -1,32 +1,12 @@
-﻿/*
- * Copyright (c) 2019 Razeware LLC
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * Notwithstanding the foregoing, you may not use, copy, modify, merge, publish, 
- * distribute, sublicense, create a derivative work, and/or sell copies of the 
- * Software in any work that is designed, intended, or marketed for pedagogical or 
- * instructional purposes related to programming, coding, application development, 
- * or information technology.  Permission for such use, copying, modification,
- * merger, publication, distribution, sublicensing, creation of derivative works, 
- * or sale is expressly withheld.
- *    
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Launcher.cs" company="Exit Games GmbH">
+//   Part of: Photon Unity Networking Demos
+// </copyright>
+// <summary>
+//  Used in "PUN Basic tutorial" to handle typical game management requirements
+// </summary>
+// <author>developer@exitgames.com</author>
+// --------------------------------------------------------------------------------------------------------------------
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,26 +15,160 @@ using Photon.Realtime;
 
 namespace Photon.Pun.Demo.PunBasics
 {
-    public class GameManager : MonoBehaviourPunCallbacks
+	#pragma warning disable 649
+
+	/// <summary>
+	/// Game manager.
+	/// Connects and watch Photon Status, Instantiate Player
+	/// Deals with quiting the room and the game
+	/// Deals with level loading (outside the in room synchronization)
+	/// </summary>
+	public class GameManager : MonoBehaviourPunCallbacks
     {
-        public GameObject winnerUI;
 
-        public GameObject player1SpawnPosition;
-        public GameObject player2SpawnPosition;
+		#region Public Fields
 
-        public GameObject ballSpawnTransform;
+		static public GameManager Instance;
 
-        private GameObject ball;
-        private GameObject player1;
-        private GameObject player2;
+		#endregion
 
-        // Start Method
-      
-        // Update Method
+		#region Private Fields
 
-        // Photon Methods
+		private GameObject instance;
 
-        //Helper Methods
+        [Tooltip("The prefab to use for representing the player")]
+        [SerializeField]
+        private GameObject playerPrefab;
 
-    }
+        #endregion
+
+        #region MonoBehaviour CallBacks
+
+        /// <summary>
+        /// MonoBehaviour method called on GameObject by Unity during initialization phase.
+        /// </summary>
+        void Start()
+		{
+			Instance = this;
+
+			// in case we started this demo with the wrong scene being active, simply load the menu scene
+			if (!PhotonNetwork.IsConnected)
+			{
+				SceneManager.LoadScene("PunBasics-Launcher");
+
+				return;
+			}
+
+			if (playerPrefab == null) { // #Tip Never assume public properties of Components are filled up properly, always check and inform the developer of it.
+
+				Debug.LogError("<Color=Red><b>Missing</b></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
+			} else {
+
+
+				if (PlayerManager.LocalPlayerInstance==null)
+				{
+				    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+
+					// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
+					PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,5f,0f), Quaternion.identity, 0);
+				}else{
+
+					Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
+				}
+
+
+			}
+
+		}
+
+		/// <summary>
+		/// MonoBehaviour method called on GameObject by Unity on every frame.
+		/// </summary>
+		void Update()
+		{
+			// "back" button of phone equals "Escape". quit app if that's pressed
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				QuitApplication();
+			}
+		}
+
+        #endregion
+
+        #region Photon Callbacks
+
+        /// <summary>
+        /// Called when a Photon Player got connected. We need to then load a bigger scene.
+        /// </summary>
+        /// <param name="other">Other.</param>
+        public override void OnPlayerEnteredRoom( Player other  )
+		{
+			Debug.Log( "OnPlayerEnteredRoom() " + other.NickName); // not seen if you're the player connecting
+
+			if ( PhotonNetwork.IsMasterClient )
+			{
+				Debug.LogFormat( "OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient ); // called before OnPlayerLeftRoom
+
+				LoadArena();
+			}
+		}
+
+		/// <summary>
+		/// Called when a Photon Player got disconnected. We need to load a smaller scene.
+		/// </summary>
+		/// <param name="other">Other.</param>
+		public override void OnPlayerLeftRoom( Player other  )
+		{
+			Debug.Log( "OnPlayerLeftRoom() " + other.NickName ); // seen when other disconnects
+
+			if ( PhotonNetwork.IsMasterClient )
+			{
+				Debug.LogFormat( "OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient ); // called before OnPlayerLeftRoom
+
+				LoadArena(); 
+			}
+		}
+
+		/// <summary>
+		/// Called when the local player left the room. We need to load the launcher scene.
+		/// </summary>
+		public override void OnLeftRoom()
+		{
+			SceneManager.LoadScene("PunBasics-Launcher");
+		}
+
+		#endregion
+
+		#region Public Methods
+
+		public void LeaveRoom()
+		{
+			PhotonNetwork.LeaveRoom();
+		}
+
+		public void QuitApplication()
+		{
+			Application.Quit();
+		}
+
+		#endregion
+
+		#region Private Methods
+
+		void LoadArena()
+		{
+			if ( ! PhotonNetwork.IsMasterClient )
+			{
+				Debug.LogError( "PhotonNetwork : Trying to Load a level but we are not the master Client" );
+			}
+
+			Debug.LogFormat( "PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount );
+
+			PhotonNetwork.LoadLevel("PunBasics-Room for "+PhotonNetwork.CurrentRoom.PlayerCount);
+		}
+
+		#endregion
+
+	}
+
 }
